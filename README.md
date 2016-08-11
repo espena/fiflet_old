@@ -14,10 +14,10 @@ Invoked from the command-line:
 [command] can be one of the following:
 
 <ul>
-  <li>**scrape** Run the scraper to collect data.</li>
-  <li>**list-suppliers** Output the list of data suppliers with IDs.</li>
-  <li>**regen-suppliers** Update the list of data suppliers from server.</li>
-  <li>**nuke-database** Drop and recreate the database. Use with caution.</li>
+  <li><b>scrape</b> Run the scraper to collect data.</li>
+  <li><b>list-suppliers</b> Output the list of data suppliers with IDs.</li>
+  <li><b>regen-suppliers</b> Update the list of data suppliers from server.</li>
+  <li><b>nuke-database</b> Drop and recreate the database. Use with caution.</li>
 </ul>
 
 ## Web application
