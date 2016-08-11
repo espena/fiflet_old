@@ -37,7 +37,7 @@
       else if( array_search( 'list-suppliers', $argv ) !== FALSE ) {
         print_r( Factory::getSuppliers( FALSE ) );
       }
-      else {
+      else if( array_search( 'scrape', $argv ) !== FALSE ) {
         $scraper = new Scraper();
         $scraper->run();
       }

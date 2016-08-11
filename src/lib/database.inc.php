@@ -33,12 +33,18 @@
       $this->mDb->multi_query( $tpl->render( $this->mConfig[ 'mysql' ] ) );
       $this->flushResults();
     }
+    public function insertSupplier( $supplierId, $supplierName ) {
+      $sql = sprintf( "CALL insertSupplier( %s, '%s' )", $supplierId, $supplierName );
+      $this->mDb->multi_query( $sql );
+      $this->flushResults();
+    }
     public function insertRecord( $record ) {
       $record[ 'saksnr' ] = explode( '/', $record[ 'saksnr' ] );
       $record[ 'dokdato' ] = $this->isoDate( $record[ 'dokdato' ] );
       $record[ 'jourdato' ] = $this->isoDate( $record[ 'jourdato' ] );
       $record[ 'pubdato' ] = $this->isoDate( $record[ 'pubdato' ] );
-      $sql = sprintf( "CALL insertRecord( '%s', '%s', '%s', %s, %s, '%s', '%s', '%s', '%s', '%s', '%s' )",
+      $sql = sprintf( "CALL insertRecord( %s, '%s', '%s', '%s', %s, %s, '%s', '%s', '%s', '%s', '%s', '%s' )",
+                            $this->mDb->escape_string( $record[ 'id_supplier' ] ),
                             $this->mDb->escape_string( $record[ 'sakstittel' ] ),
                             $this->mDb->escape_string( $record[ 'dokumenttittel' ] ),
                             $this->mDb->escape_string( $record[ 'saksnr' ][ 0 ] ),
